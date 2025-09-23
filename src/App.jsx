@@ -1,44 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { Component} from 'react'
+import Mycars from './components/Mycars';
 import './App.css'
 
 
-const Title = ({title}) => { // j'ai destructuré les props  "props.title" en paramètre de foction = ((title))
-  console.log(title)
-  return (
-    <h1>{title}</h1>
-  )
-}
 
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+class App extends Component {
+  render () {
+    return (
+      <div className="App">
+       <Mycars />
       </div>
-      <Title title="Vite + React"/>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    );
+  }
 }
 
 export default App
