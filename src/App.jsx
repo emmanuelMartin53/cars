@@ -3,6 +3,15 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+
+const Title = ({title}) => { // j'ai destructuré les props  "props.title" en paramètre de foction = ((title))
+  console.log(title)
+  return (
+    <h1>{title}</h1>
+  )
+}
+
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -16,7 +25,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <Title title="Vite + React"/>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
