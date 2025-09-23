@@ -12,13 +12,25 @@ import { Component } from "react";
 // }
 
 
-const Cars = ({model, color }) => {
-  return (
-    <div>
-      <h3>Marque: {model} </h3>
-      <p> Couleur: {color} </p>
-    </div>
-  )
+const Car = ({children, color}) => {
+
+  const colorInfo = color ? (<p> Couleur: {color} </p>) : (<p>Couleur: Néant</p>);
+
+  if (children) {
+    return (
+      <div style={{backgroundColor: 'pink', width: "400px", padding: "10px", margin: "5px auto"}}>
+        <h2>Marque: {children}</h2>
+        {colorInfo}
+      </div>
+    )
+  } else {
+    return (
+      <div style={{backgroundColor: 'pink', width: "400px", padding: "10px", margin: "5px auto"}}>
+        <h2>Cette voiture n'existe pas!</h2>
+      </div>
+      )
+  }
+
 }
 
-export default Cars;
+export default Car;

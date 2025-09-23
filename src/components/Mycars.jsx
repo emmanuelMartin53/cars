@@ -1,12 +1,15 @@
 import { Component } from "react";
-import Cars from './Cars'
+import Car from './Cars'
 
 class Mycars extends Component {
  render () {
+  // console.log(this)
   return (
     <div>
-      <h1>Mes voitures</h1>
-      <Cars model="Citroen" color="black"/>
+      <h1>{this.props.title}</h1>
+      <Car children="Citroen" color="Noir"/>
+      <Car children="Peugeot"/>
+      <Car children="Toyota" color="Blanc"/>
     </div>
   )
  }
