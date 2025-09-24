@@ -1,34 +1,18 @@
-import { Component } from "react";
-import Wrapper from "./Wrapper";
 
-// class Cars extends Component {
-//  render () {
-//   return (
-//     <div>
-//       <h3>Marque: Citroen</h3>
-//       <p> Couleur: Noire </p>
-//     </div>
-//   )
-//  }
-// }
+const Car = ({color, children}) => {
 
+    const colorInfo = color ? <p>Couleur: {color}</p> : <p>Couleur: "Néant"</p>;
 
-const Car = ({children, color}) => {
-
-  let colorInfo = "";
-
-    if (color) {
-      colorInfo = color
-    } else {
-      colorInfo = "Néant"
+    if (children) {
+        return (
+            <div style={ {backgroundColor: 'pink', width: '400px', padding: '10px', margin: '5px auto'} }>
+                <h2>Marque: { children }</h2>
+                {colorInfo}
+            </div>
+        )
     }
 
-    return children && (
-      <Wrapper>
-        <h2>Marque: {children}</h2>
-        <p>Couleur: {colorInfo}</p>
-      </Wrapper>
-
-    )
+    // return null // ce return est Facultatif
 }
-export default Car;
+
+export default Car

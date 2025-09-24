@@ -1,36 +1,36 @@
-import { Component } from "react";
+import { Component } from 'react'
 import Car from './Cars'
-import Wrapper from "./Wrapper";
-import Myheader from "./Myheader";
 
 class Mycars extends Component {
 
-  state = {
-    cars: [
-      "Citroen",
-      "Peugeot",
-      "Toyoya"
-    ]
+  noCopy = () => {
+    alert("Merci de ne pas copier le texte")
   }
 
- render () {
-  // console.log(this)
-  const {title, color} = this.props
-  console.log(color)
+  addStyle = (event) => {
+    console.log(event.target)
+    if (event.target.classList.contains("styled")) {
+      event.target.classList.remove('styled')
+    } else {
+      event.target.classList.add('styled')
+    }
+  }
 
-  return (
-    <div>
-      <Wrapper>
-        <Myheader myColor={color}>
-            {title}
-         </Myheader>
-      </Wrapper>
-      <Car children={this.state.cars[0]} color="Noir"/>
-      <Car children={this.state.cars[1]}/>
-      <Car  children={this.state.cars[2]} color="Blanc"/>
-    </div>
-  )
- }
+
+
+  render() {
+    return (
+      <div>
+        <h1 onMouseOver={this.addStyle}>{this.props.title}</h1>
+
+        <p onCopy={this.noCopy}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+          <Car color="red">Ford</Car>
+          <Car>Mercedes</Car>
+          <Car color="green"></Car>
+      </div>
+
+    )
+  }
 }
 
-export default Mycars;
+export default Mycars
