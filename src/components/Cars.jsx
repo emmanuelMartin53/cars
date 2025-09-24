@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Wrapper from "./Wrapper";
 
 // class Cars extends Component {
 //  render () {
@@ -14,23 +15,20 @@ import { Component } from "react";
 
 const Car = ({children, color}) => {
 
-  const colorInfo = color ? (<p> Couleur: {color} </p>) : (<p>Couleur: Néant</p>);
+  let colorInfo = "";
 
-  if (children) {
-    return (
-      <div style={{backgroundColor: 'pink', width: "400px", padding: "10px", margin: "5px auto"}}>
+    if (color) {
+      colorInfo = color
+    } else {
+      colorInfo = "Néant"
+    }
+
+    return children && (
+      <Wrapper>
         <h2>Marque: {children}</h2>
-        {colorInfo}
-      </div>
+        <p>Couleur: {colorInfo}</p>
+      </Wrapper>
+
     )
-  } else {
-    return (
-      <div style={{backgroundColor: 'pink', width: "400px", padding: "10px", margin: "5px auto"}}>
-        <h2>Cette voiture n'existe pas!</h2>
-      </div>
-      )
-  }
-
 }
-
 export default Car;
