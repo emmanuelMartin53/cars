@@ -26,7 +26,7 @@ class Mycars extends Component {
 
   render() {
 
-    const [citroen, peugeot, BMW] = this.state.voitures;
+    const [citroen, peugeot, BMW] = this.state.voitures; // destructuringt
 
 
 
