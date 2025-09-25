@@ -25,23 +25,47 @@ class Mycars extends Component {
 
 
   render() {
-    const year = new Date().getFullYear()
+
+    const [citroen, peugeot, BMW] = this.state.voitures;
+
+
+
     return (
       <div>
         <h1 >{this.props.title}</h1>
 
         <button onClick={this.addTenYears}> + 10 ans</button>
 
-          {/* <Car color={this.state.voitures[0].color} year={year - this.state.voitures[0].year + " ans"}>{this.state.voitures[0].name}</Car>
-          <Car color={this.state.voitures[1].color} year={year - this.state.voitures[1].year + " ans"}>{this.state.voitures[1].name}</Car>
-          <Car color={this.state.voitures[2].color} year={year - this.state.voitures[2].year + " ans"}>{this.state.voitures[2].name}</Car> */}
+          <Car
+             name={citroen.name}
+             color={citroen.color}
+             year={citroen.year}
+          />
+
+          <Car
+            name={peugeot.name}
+            color={peugeot.color}
+            year={peugeot.year}
+
+          />
+
+          <Car
+            name={BMW.name}
+            color={BMW.color}
+            year={BMW.year}
+          />
+
+
 
           {
-            this.state.voitures.map((voiture, index) => {
-              return (
-                <Car name={voiture.name} key={index} color={voiture.color} year={year - voiture.year + " ans" } />
-              )
-            })
+
+            // this.state.voitures.map((voiture, index) => {
+            //   return (
+            //     <div key={index} >
+            //       <Car name={voiture.name} key={index} color={voiture.color} year={year - voiture.year + " ans" } />
+            //     </div>
+            //   )
+            // })
           }
       </div>
 
