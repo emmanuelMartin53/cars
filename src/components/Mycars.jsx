@@ -69,8 +69,6 @@ class Mycars extends Component {
             year={BMW.year}
           /> */}
 
-
-
           {
 
             this.state.voitures.map(({name, color, year}, index) => { // Destructuring sur object "voiture" placé en paramètre méthode .map()
