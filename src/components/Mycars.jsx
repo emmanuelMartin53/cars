@@ -7,7 +7,7 @@ class Mycars extends Component {
 
   state = {
     voitures: [
-      { name: "Citroen", color: "black", year: 2010 },
+      { name: "Citroen", color: "black", year: 2024 },
       { name: "Peugeot", color: "red", year: 2016 },
       { name: "BMW", color: "blue", year: 2020 }
     ]
@@ -23,10 +23,24 @@ class Mycars extends Component {
     })
   }
 
+  getAge (year) {
+    const now = new Date().getFullYear()
+    const age = now - year
+
+    // ans, an
+    let frenchYearStr = "";
+    if (age === 1) {
+      frenchYearStr = "an";
+    } else if (age > 1) {
+      frenchYearStr = "ans";
+    }
+    return`${age} ${frenchYearStr}`
+  }
+
 
   render() {
 
-    const [citroen, peugeot, BMW] = this.state.voitures; // destructuringt
+    // const [citroen, peugeot, BMW] = this.state.voitures; // destructuring
 
 
 
@@ -35,7 +49,7 @@ class Mycars extends Component {
         <h1 >{this.props.title}</h1>
 
         <button onClick={this.addTenYears}> + 10 ans</button>
-
+{/*
           <Car
              name={citroen.name}
              color={citroen.color}
@@ -53,19 +67,23 @@ class Mycars extends Component {
             name={BMW.name}
             color={BMW.color}
             year={BMW.year}
-          />
+          /> */}
 
 
 
           {
 
-            // this.state.voitures.map((voiture, index) => {
-            //   return (
-            //     <div key={index} >
-            //       <Car name={voiture.name} key={index} color={voiture.color} year={year - voiture.year + " ans" } />
-            //     </div>
-            //   )
-            // })
+            this.state.voitures.map(({name, color, year}, index) => { // Destructuring sur object "voiture" placé en paramètre méthode .map()
+              return (
+                <div key={index} >
+                  <Car
+                    name={name}
+                    color={color}
+                    year={this.getAge(year)}
+                  />
+                </div>
+              )
+            })
           }
       </div>
 
