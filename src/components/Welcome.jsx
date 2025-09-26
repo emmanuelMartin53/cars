@@ -1,7 +1,5 @@
 
-
 const Welcome = () => {
-
   const bonjour = () => {
     console.log("Bonjour")
   }
@@ -24,5 +22,4 @@ const Welcome = () => {
   )
 
 }
-
 export default Welcome

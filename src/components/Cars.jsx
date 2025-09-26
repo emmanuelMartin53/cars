@@ -1,15 +1,15 @@
 
 const Car = ({color, name, year}) => {
 
-    const colorInfo = color ? <p>Couleur: {color}</p> : <p>Couleur: "Néant"</p>;
+    const colorInfo = color ? (`Couleur: ${color}`) : (`Couleur: "Néant")`);
 
     if (name) {
         return (
-            <div style={ {backgroundColor: 'pink', width: '400px', padding: '10px', margin: '5px auto'} }>
-                <h2>Marque: { name }</h2>
-                <p>Age: {year}</p>
-                {colorInfo}
-            </div>
+            <tr>
+               <td><h2>Marque: { name }</h2></td>
+                <td><p>Age: {year}</p></td>
+                <td>{colorInfo}</td>
+            </tr>
         )
     } else {
       // return null // ce return est Facultatif

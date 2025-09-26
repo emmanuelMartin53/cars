@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import { Component, Fragment } from 'react'
 import Car from './Cars'
 
 class Mycars extends Component {
@@ -42,48 +42,30 @@ class Mycars extends Component {
 
     // const [citroen, peugeot, BMW] = this.state.voitures; // destructuring
 
-
-
     return (
-      <div>
+      <Fragment>
         <h1 >{this.props.title}</h1>
 
         <button onClick={this.addTenYears}> + 10 ans</button>
-{/*
-          <Car
-             name={citroen.name}
-             color={citroen.color}
-             year={citroen.year}
-          />
 
-          <Car
-            name={peugeot.name}
-            color={peugeot.color}
-            year={peugeot.year}
-
-          />
-
-          <Car
-            name={BMW.name}
-            color={BMW.color}
-            year={BMW.year}
-          /> */}
+        <table className="carsTable">
+          <tr>
+            <th>Marque</th>
+            <th>Age</th>
+            <th>Couleur</th>
+          </tr>
 
           {
-
             this.state.voitures.map(({name, color, year}, index) => { // Destructuring sur object "voiture" placé en paramètre méthode .map()
               return (
-                <div key={index} >
-                  <Car
-                    name={name}
-                    color={color}
-                    year={this.getAge(year)}
-                  />
-                </div>
+                <Fragment key={index}>
+                  <Car name={name} color={color} year={this.getAge(year)} />
+                </Fragment>
               )
             })
           }
-      </div>
+        </table>
+      </Fragment>
 
     )
   }
